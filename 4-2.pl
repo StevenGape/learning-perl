@@ -1,6 +1,6 @@
-#! perl -w 
+#! perl -w
 use strict;
-
+# 使用之前程序中的子程序，计算从1加到1000的总和。
 my $allsum = total(1..1000);
 print "The sum of 1 to 1000 is : $allsum.\n";
 

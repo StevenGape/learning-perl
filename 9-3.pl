@@ -1,5 +1,6 @@
 #! perl -w
-
+# 修改前一题程序，把所有的Fred换成Wilma并把所有的Wilma换成Fred。
+# 如果输入的是fred&wilma，那么正确的输出应是Wilma&Fred。
 my $in = $ARGV[0];
 if (! defined $in) {
 	die "Usage: $0 filename";

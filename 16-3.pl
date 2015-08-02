@@ -1,5 +1,6 @@
 #! perl -w
 use strict;
+
 # 写一个程序，用它解析date命令的输出并判断今天是星期几。
 # 如果是工作日，输出get to work，否则输出go play。date
 # 命令的输出中，星期一是用Mon来表示的。如果你使用非Unix
@@ -8,8 +9,9 @@ use strict;
 # 原理，我们就无偿奉上：
 # #! /usr/bin/perl
 # print localtime()."\n";
-if (`date` =~ /\AS/) {
-  print "go play!\n";
-} else {
-  print "get to work!\n";
+if ( `date` =~ /\AS/ ) {
+    print "go play!\n";
+}
+else {
+    print "get to work!\n";
 }

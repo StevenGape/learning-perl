@@ -1,5 +1,6 @@
 #! perl -w
 use strict;
+
 # 如果你的系统支持，写一个功能和ln类似的程序，建立从第一个参数
 # 到第二个参数的硬链接（不必实现ln的各种选项或额外参数）。如果
 # 系统不支持硬链接，那只要输出关于它本来会进行的操作的信息就行
@@ -8,11 +9,11 @@ use strict;
 use File::Basename;
 use File::Spec;
 
-my($source, $dest) = @ARGV;
+my ( $source, $dest ) = @ARGV;
 
-if (-d $dest) {
-  my $basename = basename $source;
-  $dest = File::Spec->catfile($dest, $basename);
+if ( -d $dest ) {
+    my $basename = basename $source;
+    $dest = File::Spec->catfile( $dest, $basename );
 }
 
 link $source, $dest

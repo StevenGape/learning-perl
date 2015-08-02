@@ -13,5 +13,4 @@ if (-d $dest) {
   $dest = File:Spec->catfile($dest, $basename);
 }
 
-rename $source, $dest
-  or die "Can't rename '$source' to '$dest': $!\n";
+rename $source, $dest or die "Can't rename '$source' to '$dest': $!\n";

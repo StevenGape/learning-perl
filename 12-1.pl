@@ -8,19 +8,20 @@ use strict;
 # 一次询问多个要测试文件的属性。
 
 foreach my $file (@ARGV) {
-  my $attribs = &attributes($file);
-  print "'$file' $attribs.\n"
+    my $attribs = &attributes($file);
+    print "'$file' $attribs.\n";
 }
 
 sub attributes {
-  #报告某个给定文件的属性
-  my $file = shift @_;
-  return "Dose not exit" unless -e $file;
 
-  my @attrib;
-  push @attrib, "readable" if -r $file;
-  push @attrib, "writable" if -w $file;
-  push @attrib, "executable" if -x $file;
-  return "exists" unless @attrib;
-  'is ' . join " and ", @attrib; #返回值
+    #报告某个给定文件的属性
+    my $file = shift @_;
+    return "Dose not exit" unless -e $file;
+
+    my @attrib;
+    push @attrib, "readable"   if -r $file;
+    push @attrib, "writable"   if -w $file;
+    push @attrib, "executable" if -x $file;
+    return "exists" unless @attrib;
+    'is ' . join " and ", @attrib;    #返回值
 }

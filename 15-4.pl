@@ -1,5 +1,6 @@
 #! perl -w
 use strict;
+
 # 使用given和智能匹配写个程序，从命令行得到一个数字，
 # 打印出这个数字除了1和它本身以外的因数。比如输入99，
 # 你写得程序该报告3、9、11和33这4个数。如果输入的数字
@@ -24,23 +25,23 @@ use 5.010;
 
 say "Checking the number <$ARGV[0]>";
 
-given( $ARGV[0] ) {
-  when( ! /\A\d+\Z/ ) { say "Not a number!" }
-  my @divisors = divisors( $_ );
+given ( $ARGV[0] ) {
+    when ( !/\A\d+\Z/ ) { say "Not a number!" }
+    my @divisors = divisors($_);
 
-  my @empty;
-  when( @divisors ~~ @empty ) { say "Number is prime" }
+    my @empty;
+    when ( @divisors ~~ @empty ) { say "Number is prime" }
 
-  default { say "$_ is divisible by @divisors" }
+    default { say "$_ is divisible by @divisors" }
 }
 
 sub divisors {
-  my $number = shift;
+    my $number = shift;
 
-  my @divisors = ();
-  foreach my $divisor ( 2 .. ( $number/2 ) ) {
-    push @divisors, $divisor unless $number % $divisor;
-  }
+    my @divisors = ();
+    foreach my $divisor ( 2 .. ( $number / 2 ) ) {
+        push @divisors, $divisor unless $number % $divisor;
+    }
 
-  return @divisors;
+    return @divisors;
 }

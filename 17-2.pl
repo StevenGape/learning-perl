@@ -1,5 +1,6 @@
 #! perl -w
 use strict;
+
 # 写一个程序，报告当前目录下所有文件的最后访问时间
 # 和最后最后修改时间（纪元时间），单位为秒。用stat
 # 取得文件的时间戳信息，利用列表切片的写法提取这两个
@@ -7,7 +8,7 @@ use strict;
 #   fred.txt    1294145029      1290880566
 #   barney.txt  1294197219      1290810036
 #   betty.txt   1287707076      1274433310
-foreach ( glob( '*' ) ) {
-  my( $atime, $mtime ) = (stat)[8,9];
-  printf "%-20s %10d %10d\n", $_, $atime, $mtime;
+foreach ( glob('*') ) {
+    my ( $atime, $mtime ) = (stat)[ 8, 9 ];
+    printf "%-20s %10d %10d\n", $_, $atime, $mtime;
 }

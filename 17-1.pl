@@ -1,5 +1,6 @@
 #! perl -w
 use strict;
+
 # 写一个程序，从文件中读取一组字符串（每行一个），然后
 # 让用户键入模式以便进行字符串匹配。对每一个模式，程序
 # 应该说明文件里共有多少字符串匹配成功，分别是哪些字符
@@ -14,20 +15,18 @@ use strict;
 my $filename = 'path/to/sample_text';
 open my $fh, '<', $filename
   or die "Can't open '$filename': $!";
-chomp(my @strings = <FILE>);
+chomp( my @strings = <FILE> );
 while (1) {
-  print 'Please enter a pattern: ';
-  chomp(my $pattern = <STDIN>);
-  last if $pattern =~ /\A\s*\Z/;
-  my @matches = eval {
-    grep /$pattern/, @strings;
-  };
-  if ($@) {
-    print "Error: $@";
-  } else {
-    my $count = @matches;
-    print "There were $count matching strings:\n",
-      map "$_\n", @matches;
-  }
-  print "\n";
+    print 'Please enter a pattern: ';
+    chomp( my $pattern = <STDIN> );
+    last if $pattern =~ /\A\s*\Z/;
+    my @matches = eval { grep /$pattern/, @strings; };
+    if ($@) {
+        print "Error: $@";
+    }
+    else {
+        my $count = @matches;
+        print "There were $count matching strings:\n", map "$_\n", @matches;
+    }
+    print "\n";
 }

@@ -3,8 +3,8 @@
 # 说，加入你键入的是fred、barney、wilma、betty，输出应该显示barney betty fred wilma。所有
 # 的字符串可以成一行输出吗？或者分开在不同行输出？你能分别让程序以这两种方式输出吗？
 print "input string:";
-chomp(@lines=<STDIN>);
-@relines=reverse @lines;
-foreach (@relines){
-	print $_."\n";
+chomp( @lines = <STDIN> );
+@relines = reverse @lines;
+foreach (@relines) {
+    print $_. "\n";
 }

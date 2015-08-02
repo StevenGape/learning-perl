@@ -1,5 +1,6 @@
 #! perl -w
 use 5.010;
+
 # 修改前面这个程序，告诉所有新来的人之前已经迎接了哪些人：
 # greet('Fred');
 # greet('Barney');
@@ -17,16 +18,17 @@ greet('Wilma');
 greet('Betty');
 
 sub greet {
-	state @persons;
+    state @persons;
 
-	my $name = shift;
+    my $name = shift;
 
-	print "Hi $name! ";
+    print "Hi $name! ";
 
-	if (@persons > 0) {
-		print "I've seen: @persons\n";
-	} else {
-		print "You are the first one here!\n";
-	}
-	push @persons, $name;
+    if ( @persons > 0 ) {
+        print "I've seen: @persons\n";
+    }
+    else {
+        print "You are the first one here!\n";
+    }
+    push @persons, $name;
 }
